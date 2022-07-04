@@ -3,6 +3,9 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+
+import java.awt.Color;
+
 import model.MouseMode;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;

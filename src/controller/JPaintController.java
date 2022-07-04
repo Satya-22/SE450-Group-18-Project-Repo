@@ -1,9 +1,12 @@
 package controller;
 
+import javax.swing.undo.UndoManager;
+
 import model.interfaces.IApplicationState;
 import view.EventName;
 import view.interfaces.IEventCallback;
 import view.interfaces.IUiModule;
+import view.interfaces.PaintCanvasBase;
 
 public class JPaintController implements IJPaintController {
     private final IUiModule uiModule;
@@ -25,5 +28,7 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_SECONDARY_COLOR, () -> applicationState.setActiveSecondaryColor());
         uiModule.addEvent(EventName.CHOOSE_SHADING_TYPE, () -> applicationState.setActiveShadingType());
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> applicationState.setActiveStartAndEndPointMode());
+        uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
+        uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
     }
 }

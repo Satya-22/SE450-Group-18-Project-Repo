@@ -6,7 +6,7 @@ import model.CreateShape;
 
 public class ShapeList {
 	
-	private List<CreateShape> shapeList;
+	private final List<CreateShape> shapeList;
 	
 	public ShapeList(List<CreateShape> shapeList) {
 		this.shapeList = shapeList; 

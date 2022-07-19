@@ -7,9 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import model.CreateShape;
-import model.MouseMode;
-import model.ShapeType;
+
+import model.*;
 import model.persistence.ApplicationState;
 import view.interfaces.PaintCanvasBase;
 
@@ -17,11 +16,15 @@ public class MouseHandler extends MouseAdapter {
 
 	Point p1 = new Point(0, 0);
 	Point p2 = new Point(0, 0);
-	int l;
-	int w;
 	PaintCanvasBase paintCanvas;
 	ApplicationState appState;
 	ShapeList shapeList;
+
+	Color primaryColor;
+
+	Color secondaryColor;
+
+	ShapeShadingType sst;
 
 	public MouseHandler(PaintCanvasBase paintCanvas, ApplicationState appState, ShapeList ShapeList) {
 		this.paintCanvas = paintCanvas;
@@ -34,13 +37,15 @@ public class MouseHandler extends MouseAdapter {
 		graphics2d.setStroke(new BasicStroke(5));
 		graphics2d.setColor(stringToColor(appState.getActivePrimaryColor().toString()));
 
-		if (appState.getActiveShapeType() == ShapeType.RECTANGLE) {
-			l = Math.abs(p1.x - p2.x);
-			w = Math.abs(p1.y - p2.y);
-			graphics2d.fillRect(Math.min(p1.x, p2.x), Math.min(p1.y, p2.y), l, w);
-			CreateShape shape = new CreateShape(p1 ,p2, paintCanvas, appState, shapeList);
-			shape.run();
-		}
+		primaryColor = stringToColor(appState.getActivePrimaryColor().toString());
+
+		secondaryColor = stringToColor(appState.getActiveSecondaryColor().toString());
+
+		sst = appState.getActiveShapeShadingType();
+
+		CreateShape shape = new CreateShape(p1 ,p2, paintCanvas,primaryColor,secondaryColor,sst,appState, shapeList);
+		shape.run();
+
 	}
 
 	public static Color stringToColor(final String value) {

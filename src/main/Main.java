@@ -5,8 +5,6 @@ import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
 import model.CreateShape;
-import model.ShapeColor;
-import model.ShapeType;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.GuiWindow;
@@ -14,23 +12,20 @@ import view.gui.PaintCanvas;
 import view.interfaces.IGuiWindow;
 import view.interfaces.PaintCanvasBase;
 import view.interfaces.IUiModule;
-
-import java.awt.*;
-import java.util.Collection;
-import java.util.EnumMap;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Main {
     public static void main(String[] args){
-    	
+
+
         PaintCanvasBase paintCanvas = new PaintCanvas();
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
-        
+
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
         final ShapeList ShapeList = new ShapeList(shapeList);
         

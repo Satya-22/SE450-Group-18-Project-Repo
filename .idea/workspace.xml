@@ -2,25 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="377f41bd-5c9a-4669-aad8-3185f958b0de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/IDraw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/IShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/RedoCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/DrawShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/gui/Ellipse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/gui/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SE450-Group-18-Project-Repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SE450-Group-18-Project-Repo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/JPaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/JPaintController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/SelectedShapeList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/MoveShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/SelectShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/interfaces/ISelectedShapesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/MouseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/MouseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/ShapeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/ShapeList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/CreateShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/CreateShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Ellipse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/PaintCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/PaintCanvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/view/gui/Triangle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MouseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ShapeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ShapeList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/CreateShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CreateShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/gui/PaintCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gui/PaintCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/gui/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gui/Ellipse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/gui/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gui/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/interfaces/PaintCanvasBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/interfaces/PaintCanvasBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/gui/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gui/Triangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -8,8 +8,8 @@ public class Triangle implements IDraw {
 
     @Override
     public void draw(CreateShape shape, Graphics2D g) {
-       Color primaryColor = stringToColor(shape.appState.getActivePrimaryColor().toString());
-       Color secondaryColor = stringToColor(shape.appState.getActiveSecondaryColor().toString());
+       Color primaryColor = shape.primaryColor;
+       Color secondaryColor = shape.secondaryColor;
         int[] arrayX = {shape.p1.x, shape.p1.x, shape.p2.x};
         int[] arrayY = {shape.p1.y, shape.p2.y, shape.p2.y};
         if (shape.sst.name().equals("FILLED_IN")) {

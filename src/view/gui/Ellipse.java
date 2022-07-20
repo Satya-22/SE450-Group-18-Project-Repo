@@ -11,8 +11,8 @@ public class Ellipse implements IDraw {
         int py = Math.min(shape.p1.y, shape.p2.y);
         int pw = Math.abs(shape.p1.x - shape.p2.x);
         int ph = Math.abs(shape.p1.y - shape.p2.y);
-        Color primaryColor = stringToColor(shape.appState.getActivePrimaryColor().toString());
-        Color  secondaryColor = stringToColor(shape.appState.getActiveSecondaryColor().toString());
+        Color primaryColor = shape.primaryColor;
+        Color  secondaryColor = shape.secondaryColor;
         if(shape.sst.name().equals("FILLED_IN")){
             g.setColor(primaryColor);
             g.fillOval(px, py, pw, ph);

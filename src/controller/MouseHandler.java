@@ -75,6 +75,15 @@ public class MouseHandler extends MouseAdapter {
 		p2 = e.getPoint();
 		if (appState.getActiveMouseMode() == MouseMode.DRAW)
 			drawShape(paintCanvas);
-	}
+		else if (appState.getActiveMouseMode() == MouseMode.SELECT) {
+			SelectShape command = new SelectShape(p1, p2, paintCanvas,shapeList);
+				command.run();
+			}
+		else if (appState.getActiveMouseMode() == MouseMode.MOVE) {
+			MoveShape command = new MoveShape(p1, p2, paintCanvas,shapeList);
+			command.run();
+		}
 
-}
+		}
+
+	}

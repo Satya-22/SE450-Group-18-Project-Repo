@@ -1,12 +1,12 @@
 package main;
 
+import controller.DrawShape;
 import controller.IJPaintController;
 import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
-import model.CreateShape;
-import model.ShapeColor;
-import model.ShapeType;
+import controller.ShapeMode;
+import controller.commands.CreateShape;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.GuiWindow;
@@ -14,10 +14,6 @@ import view.gui.PaintCanvas;
 import view.interfaces.IGuiWindow;
 import view.interfaces.PaintCanvasBase;
 import view.interfaces.IUiModule;
-
-import java.awt.*;
-import java.util.Collection;
-import java.util.EnumMap;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +28,13 @@ public class Main {
         IJPaintController controller = new JPaintController(uiModule, appState);
         
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
-        final ShapeList ShapeList = new ShapeList(shapeList);
+        ShapeList ShapeList = new ShapeList(shapeList);
+        DrawShape DrawShape = new DrawShape(paintCanvas);
         
-        MouseHandler handler = new MouseHandler(paintCanvas,appState, ShapeList);
+        MouseHandler handler = new MouseHandler();
         paintCanvas.addMouseListener(handler);
+        MouseHandler.getAppState(appState);
+        ShapeMode.getAppState(appState);
         
         controller.setup();
         

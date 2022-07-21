@@ -4,7 +4,7 @@ import controller.IJPaintController;
 import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
-import model.CreateShape;
+import controller.CreateShapeCommand;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.GuiWindow;
@@ -26,7 +26,7 @@ public class Main {
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
 
-        List<CreateShape> shapeList = new ArrayList<CreateShape>();
+        List<CreateShapeCommand> shapeList = new ArrayList<CreateShapeCommand>();
         final ShapeList ShapeList = new ShapeList(shapeList);
         
         MouseHandler handler = new MouseHandler(paintCanvas,appState, ShapeList);

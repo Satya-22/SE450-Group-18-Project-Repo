@@ -1,6 +1,8 @@
 package controller;
 
-public class UndoCommand implements ICommand{
+import model.interfaces.ICommand;
+
+public class UndoCommand implements ICommand {
     @Override
     public  void run() {
         CommandHistory.undo();

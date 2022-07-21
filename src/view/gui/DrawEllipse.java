@@ -1,12 +1,12 @@
 package view.gui;
 
-import controller.IDraw;
-import model.CreateShape;
+import model.interfaces.IDraw;
+import controller.CreateShapeCommand;
 import java.awt.*;
 
-public class Ellipse implements IDraw {
+public class DrawEllipse implements IDraw {
     @Override
-    public void draw(CreateShape shape, Graphics2D g) {
+    public void draw(CreateShapeCommand shape, Graphics2D g) {
         int px = Math.min(shape.p1.x, shape.p2.x);
         int py = Math.min(shape.p1.y, shape.p2.y);
         int pw = Math.abs(shape.p1.x - shape.p2.x);
@@ -28,21 +28,5 @@ public class Ellipse implements IDraw {
             g.drawOval(px, py, pw, ph);
         }
 
-    }
-    public static Color stringToColor(final String value) {
-        if (value == null) {
-            return Color.black;
-        }
-        try {
-            return Color.decode(value);
-        } catch (NumberFormatException nfe) {
-            try {
-                final java.lang.reflect.Field f = Color.class.getField(value);
-
-                return (Color) f.get(null);
-            } catch (Exception ce) {
-                return Color.black;
-            }
-        }
     }
 }

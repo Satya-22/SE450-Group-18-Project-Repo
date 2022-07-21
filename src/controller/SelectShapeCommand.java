@@ -1,33 +1,32 @@
-package model;
+package controller;
 
-import controller.ICommand;
+import controller.CreateShapeCommand;
+import model.DrawShape;
+import model.ShapeType;
+import model.interfaces.ICommand;
 import controller.SelectedShapeList;
 import controller.ShapeList;
 import model.interfaces.ISelectedShapesList;
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
-
-public class SelectShape implements ICommand, ISelectedShapesList {
+public class SelectShapeCommand implements ICommand, ISelectedShapesList {
     private final PaintCanvasBase paintCanvas;
     private final Point startPoint;
     private final Point endPoint;
     private Point minimum;
     private int width;
     private int height;
-    private static boolean isSelected = false;
-
     private ShapeList shapeList;
 
     private SelectedShapeList selectedShapeList;
 
-    public SelectShape(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, ShapeList shapeList) {
+    public SelectShapeCommand(Point startPoint, Point endPoint, PaintCanvasBase paintCanvas, ShapeList shapeList) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.paintCanvas = paintCanvas;
         this.shapeList = shapeList;
     }
-
     @Override
     public void run() {
 
@@ -39,7 +38,7 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 
         selectedShapes.clear();
 
-        for (CreateShape shape : shapeList.getList()) {
+        for (CreateShapeCommand shape : shapeList.getList()) {
 
             if (shape.p1.x < minimum.x + width &&
                     shape.p1.x + (Math.abs(shape.p1.x - shape.p2.x)) > minimum.x &&
@@ -50,8 +49,11 @@ public class SelectShape implements ICommand, ISelectedShapesList {
         }
         System.out.println("Selected ShapeList : " + selectedShapes);
 
-        for (CreateShape drawShape : shapeList.getList()) {
-            for (CreateShape selectShape : selectedShapes) {
+        DrawShape drawShape1 = new DrawShape(paintCanvas,shapeList);
+        drawShape1.update();
+
+        for (CreateShapeCommand drawShape : shapeList.getList()) {
+            for (CreateShapeCommand selectShape : selectedShapes) {
                 if (selectShape.equals(drawShape)) {
                     if (selectShape.shapeType == ShapeType.RECTANGLE) {
                         Graphics2D graphics2d = paintCanvas.getGraphics2D();

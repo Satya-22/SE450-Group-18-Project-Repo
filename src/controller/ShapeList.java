@@ -2,25 +2,23 @@ package controller;
 
 import java.util.List;
 
-import model.CreateShape;
-
 public class ShapeList {
 	
-	private final List<CreateShape> shapeList;
+	private final List<CreateShapeCommand> shapeList;
 	
-	public ShapeList(List<CreateShape> shapeList) {
+	public ShapeList(List<CreateShapeCommand> shapeList) {
 		this.shapeList = shapeList; 
 	}
 	
-	public void addShape(CreateShape shape) {
+	public void addShape(CreateShapeCommand shape) {
 		shapeList.add(shape); 		
 	}
 	
-	public void removeShape(CreateShape shape) {
+	public void removeShape(CreateShapeCommand shape) {
 		shapeList.remove(shape);
 	}
 	
-	public List<CreateShape> getList() {
+	public List<CreateShapeCommand> getList() {
 		return shapeList;
 	}
 }

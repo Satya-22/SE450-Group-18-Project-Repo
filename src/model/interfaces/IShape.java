@@ -1,4 +1,4 @@
-package controller;
+package model.interfaces;
 
 import java.awt.*;
 

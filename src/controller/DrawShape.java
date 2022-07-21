@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import controller.commands.CreateShape;
+import model.interfaces.IDrawShape;
 import model.shape.DrawEllipse;
 import model.shape.DrawRectangle;
 import model.shape.DrawTriangle;

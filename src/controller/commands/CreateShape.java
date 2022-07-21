@@ -3,10 +3,10 @@ package controller.commands;
 import java.awt.Point;
 
 import controller.CommandHistory;
-import controller.ICommand;
-import controller.IUndoable;
 import controller.ShapeList;
 import model.ShapeConfig;
+import model.interfaces.ICommand;
+import model.interfaces.IUndoable;
 
 public class CreateShape implements ICommand, IUndoable {
 

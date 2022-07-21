@@ -1,12 +1,12 @@
 package main;
 
 import controller.DrawShape;
-import controller.IJPaintController;
 import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
 import controller.ShapeMode;
 import controller.commands.CreateShape;
+import model.interfaces.IJPaintController;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.GuiWindow;

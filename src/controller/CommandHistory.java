@@ -1,9 +1,8 @@
 package controller;
 
-import java.awt.Color;
 import java.util.Stack;
 
-import controller.IUndoable;
+import model.interfaces.IUndoable;
 
 public class CommandHistory {
 	private static final Stack<IUndoable> undoStack = new Stack<IUndoable>();

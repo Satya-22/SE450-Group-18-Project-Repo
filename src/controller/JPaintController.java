@@ -1,12 +1,10 @@
 package controller;
 
-import javax.swing.undo.UndoManager;
 
 import model.interfaces.IApplicationState;
+import model.interfaces.IJPaintController;
 import view.EventName;
-import view.interfaces.IEventCallback;
 import view.interfaces.IUiModule;
-import view.interfaces.PaintCanvasBase;
 
 public class JPaintController implements IJPaintController {
 	private final IUiModule uiModule;

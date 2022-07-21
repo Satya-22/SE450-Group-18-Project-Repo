@@ -2,7 +2,7 @@ package controller.commands;
 
 import java.awt.Point;
 
-import controller.ICommand;
+import model.interfaces.ICommand;
 
 public class MoveShape implements ICommand {
 

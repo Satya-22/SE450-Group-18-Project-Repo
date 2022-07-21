@@ -4,8 +4,8 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import controller.IDrawShape;
 import controller.commands.CreateShape;
+import model.interfaces.IDrawShape;
 
 public class DrawEllipse implements IDrawShape {
 

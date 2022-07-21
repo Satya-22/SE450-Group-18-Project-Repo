@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import controller.commands.CommandFactory;
 import model.ShapeConfig;
+import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
 
 public class ShapeMode {

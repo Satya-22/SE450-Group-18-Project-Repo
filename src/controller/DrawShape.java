@@ -15,8 +15,6 @@ public class DrawShape {
 	static Graphics2D graphics2d;
 	private static ShapeList shapeList;
 
-	//ShapeList shapeList;
-
 	public DrawShape(ShapeList shapeList,PaintCanvasBase paintCanvas)
 	{
 		this.shapeList = shapeList;
@@ -50,9 +48,6 @@ public class DrawShape {
 		graphics2d.fillRect(0, 0, 2560, 1440);
 
 		for (CreateShape shape1 : shapeList.getList()) {
-			System.out.println("Updating Coordinates: "+shape1.p1);
-			System.out.println("Updating Coordinates: "+shape1.p2);
-			System.out.println(shape1.shapeConfig.shapeType);
 			drawShape(shape1);
 		}
 	}

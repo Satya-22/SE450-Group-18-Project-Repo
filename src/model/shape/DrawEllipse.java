@@ -20,25 +20,27 @@ public class DrawEllipse implements IDrawShape {
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.secondaryColor);
 			//graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
-			graphics2d.drawOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.x-shape.p2.x));
+			graphics2d.drawOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.y-shape.p2.y));
 			break;
 
 		case FILLED_IN:
 			graphics2d.setColor(shape.shapeConfig.primaryColor);
 			//graphics2d.fillOval(shape.x, shape.y, shape.w, shape.l);
-			graphics2d.fillOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.x-shape.p2.x));
+			System.out.println(shape.x +","+ shape.y+","+shape.w+","+shape.l);
+			System.out.println(shape.p1+","+shape.p2);
+			//graphics2d.fillOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.y-shape.p2.y));
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			//graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
+			graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
 			break;
 
 		case OUTLINE_AND_FILLED_IN:
 			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.fillOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.x-shape.p2.x));
+			graphics2d.fillOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.y-shape.p2.y));
 			//graphics2d.fillOval(shape.x, shape.y, shape.w, shape.l);
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.secondaryColor);
-			graphics2d.drawOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.x-shape.p2.x));
+			graphics2d.drawOval(Math.min(shape.p1.x,shape.p2.x),Math.min(shape.p1.y,shape.p2.y),Math.abs(shape.p1.x-shape.p2.x),Math.abs(shape.p1.y-shape.p2.y));
 			//graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
 			break;
 
@@ -46,6 +48,5 @@ public class DrawEllipse implements IDrawShape {
 			break;
 
 		}
-
 	}
 }

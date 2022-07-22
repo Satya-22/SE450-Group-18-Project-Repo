@@ -8,7 +8,6 @@ import controller.commands.CreateShape;
 import model.interfaces.IDrawShape;
 
 public class DrawTriangle implements IDrawShape {
-
 	@Override
 	public void draw(CreateShape shape, Graphics2D graphics2d) {
 

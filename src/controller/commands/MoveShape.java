@@ -43,13 +43,9 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 			for (CreateShape drawnShape : shapeList.getList()) {
 				if (selectedShape.equals(drawnShape)) {
 					tempRemoveList.add(drawnShape);
-					System.out.println(selectedShape.p1);
-					System.out.println(selectedShape.p2);
 					selectedShape.p1 = new Point(selectedShape.p1.x+xDelta, selectedShape.p1.y+yDelta);
 					selectedShape.p2 = new Point(selectedShape.p2.x+xDelta, selectedShape.p2.y+yDelta);
 					tempMoveList.add(selectedShape);
-					System.out.println("After adding Delta :"+selectedShape.p1);
-					System.out.println("After adding Delta :"+selectedShape.p2);
 				}
 			}
 		}

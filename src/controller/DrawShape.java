@@ -40,14 +40,13 @@ public class DrawShape {
 		}
 
 		shapeStrategy.draw(shape, graphics2d);
-
 	}
 
 	public static void update() {
 		graphics2d.setColor(Color.WHITE);
 		graphics2d.fillRect(0, 0, 2560, 1440);
-
-		for (CreateShape shape1 : shapeList.getList()) {
+		for (CreateShape shape1 : ShapeList.getList()) {
+			System.out.println(shape1.shapeConfig.shapeType);
 			drawShape(shape1);
 		}
 	}

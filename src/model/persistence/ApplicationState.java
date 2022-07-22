@@ -23,12 +23,10 @@ public class ApplicationState implements IApplicationState {
         this.dialogProvider = new DialogProvider(this);
         setDefaults();
     }
-
     @Override
     public void setActiveShape() {
         activeShapeType = uiModule.getDialogResponse(dialogProvider.getChooseShapeDialog());
     }
-
     @Override
     public void setActivePrimaryColor() {
         activePrimaryColor = uiModule.getDialogResponse(dialogProvider.getChoosePrimaryColorDialog());

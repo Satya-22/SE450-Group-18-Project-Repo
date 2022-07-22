@@ -6,7 +6,6 @@ import model.interfaces.ICommand;
 import model.interfaces.ISelectedShapesList;
 import model.interfaces.IUndoable;
 import view.interfaces.PaintCanvasBase;
-
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -21,13 +20,10 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 	private static boolean redoSelected = false;
 	private final LinkedList<CreateShape> tempMoveList;
 	private final LinkedList<CreateShape> tempRemoveList;
-	private  ShapeList shapeList;
 
-	public MoveShape(Point startPoint, Point endPoint,PaintCanvasBase paintCanvas,ShapeList shapeList) {
-		this.paintCanvas = paintCanvas;
+	public MoveShape(Point startPoint, Point endPoint) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
-		this.shapeList = shapeList;
 		tempMoveList = new LinkedList<>();
 		tempRemoveList = new LinkedList<>();
 	}
@@ -40,11 +36,13 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 		yDelta = endPoint.y - startPoint.y;
 
 		for (CreateShape selectedShape : selectedShapes) {
-			for (CreateShape drawnShape : shapeList.getList()) {
+			for (CreateShape drawnShape : ShapeList.getList()) {
 				if (selectedShape.equals(drawnShape)) {
 					tempRemoveList.add(drawnShape);
-					selectedShape.p1 = new Point(selectedShape.p1.x+xDelta, selectedShape.p1.y+yDelta);
-					selectedShape.p2 = new Point(selectedShape.p2.x+xDelta, selectedShape.p2.y+yDelta);
+					selectedShape.x = selectedShape.x+xDelta;
+					selectedShape.y =  selectedShape.y+yDelta;
+					selectedShape.p1 = new Point(selectedShape.p1.x+xDelta,selectedShape.p1.y+yDelta);
+					selectedShape.p2 = new Point(selectedShape.p2.x+xDelta,selectedShape.p2.y+yDelta);
 					tempMoveList.add(selectedShape);
 				}
 			}
@@ -52,31 +50,33 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 
 		for (CreateShape temp1 : tempRemoveList) {
 			selectedShapes.remove(temp1);
-			shapeList.removeShape(temp1);
+			ShapeList.removeShape(temp1);
 		}
 		for (CreateShape temp1 : tempMoveList) {
 			selectedShapes.add(temp1);
-			shapeList.addShape(temp1);
-			System.out.println("Print Shapes: "+shapeList);
+			ShapeList.addShape(temp1);
 		}
 		DrawShape.update();
 		CommandHistory.add(this);
 	}
 
-
 	@Override
 	public void undo() {
 		redoSelected = false;
 		undoSelected = tempMoveList.size() > 0;
+		xDelta = endPoint.x - startPoint.x;
+		yDelta = endPoint.y - startPoint.y;
 		for (CreateShape temp1 : tempMoveList) {
 			selectedShapes.remove(temp1);
-			shapeList.removeShape(temp1);
+			ShapeList.removeShape(temp1);
 		}
 		for (CreateShape temp1 : tempRemoveList) {
-			temp1.p1 = new Point(temp1.p1.x-xDelta, temp1.p1.y-yDelta);
-			temp1.p2 = new Point(temp1.p2.x-xDelta, temp1.p2.y-yDelta);
+			temp1.x = temp1.x-xDelta;
+			temp1.y = temp1.y-yDelta;
+			temp1.p1 = new Point(temp1.p1.x-xDelta,temp1.p1.y-yDelta);
+			temp1.p2 = new Point(temp1.p2.x-xDelta,temp1.p2.y-yDelta);
 			selectedShapes.add(temp1);
-			shapeList.addShape(temp1);
+			ShapeList.addShape(temp1);
 		}
 
 		if (paintCanvas != null) {
@@ -86,18 +86,22 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 
 	@Override
 	public void redo() {
+		xDelta = endPoint.x - startPoint.x;
+		yDelta = endPoint.y - startPoint.y;
 		undoSelected = false;
 		redoSelected = tempMoveList.size() > 0;
 
 		for (CreateShape temp1 : tempRemoveList) {
 			selectedShapes.remove(temp1);
-			shapeList.removeShape(temp1);
+			ShapeList.removeShape(temp1);
 		}
 		for (CreateShape temp1 : tempMoveList) {
-			temp1.p1 = new Point(temp1.p1.x+xDelta, temp1.p1.y+yDelta);
-			temp1.p2 = new Point(temp1.p2.x+xDelta, temp1.p2.y+yDelta);
+			temp1.x = temp1.x+xDelta;
+			temp1.y = temp1.y+yDelta;
+			temp1.p1 = new Point(temp1.p1.x+xDelta,temp1.p1.y+yDelta);
+			temp1.p2 = new Point(temp1.p2.x+xDelta,temp1.p2.y+yDelta);
 			selectedShapes.add(temp1);
-			shapeList.addShape(temp1);
+			ShapeList.addShape(temp1);
 		}
 		if (paintCanvas != null) {
 			DrawShape.update();

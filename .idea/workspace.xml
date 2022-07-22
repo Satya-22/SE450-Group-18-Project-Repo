@@ -3,19 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="377f41bd-5c9a-4669-aad8-3185f958b0de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/DrawShape$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/DrawShape$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/DrawShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/DrawShape.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/ShapeMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/ShapeMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/CommandFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/CommandFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/MoveShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/MoveShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/SelectShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/controller/commands/SelectShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/persistence/ApplicationState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/persistence/ApplicationState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawEllipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawEllipse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawRectangle$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawRectangle$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawRectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawRectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawTriangle$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawTriangle$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawTriangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE450-Group-18-Project-Repo/model/shape/DrawTriangle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/DrawShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DrawShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ShapeMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ShapeMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/CommandFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/MoveShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/MoveShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SelectShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SelectShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/persistence/ApplicationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/persistence/ApplicationState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/shape/DrawEllipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shape/DrawEllipse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/shape/DrawRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shape/DrawRectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/shape/DrawTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/shape/DrawTriangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

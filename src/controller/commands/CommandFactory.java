@@ -13,11 +13,11 @@ public class CommandFactory {
 		return new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList);
 	}
 
-	public static ICommand selectCommand(Point p1, Point p2, PaintCanvasBase paintCanvas) {
+	public static ICommand selectCommand(Point p1, Point p2,PaintCanvasBase paintCanvas) {
 		return new SelectShape(p1, p2,paintCanvas);
 	}
 
-	public static ICommand moveCommand(Point p1,Point p2,PaintCanvasBase paintCanvas,ShapeList shapeList) {
-		return new MoveShape(p1,p2,paintCanvas,shapeList);
+	public static ICommand moveCommand(Point p1,Point p2) {
+		return new MoveShape(p1,p2);
 	}
 }

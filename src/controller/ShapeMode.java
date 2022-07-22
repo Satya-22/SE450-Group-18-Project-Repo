@@ -25,7 +25,7 @@ public class ShapeMode {
 			shapeCommand = CommandFactory.selectCommand(p1, p2,paintCanvas);
 			break;
 		case MOVE:
-			shapeCommand = CommandFactory.moveCommand(p1,p2,paintCanvas,shapeList);
+			shapeCommand = CommandFactory.moveCommand(p1,p2);
 			break;
 
 		default:

@@ -16,7 +16,6 @@ public class DrawRectangle implements IDrawShape {
 
 		case OUTLINE:
 			graphics2d.setColor(Color.WHITE);
-			graphics2d.fillRect(shape.x, shape.y, shape.w, shape.l);
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.secondaryColor);
 			graphics2d.drawRect(shape.x, shape.y, shape.w, shape.l);
@@ -27,7 +26,6 @@ public class DrawRectangle implements IDrawShape {
 			graphics2d.fillRect(shape.x, shape.y, shape.w, shape.l);
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.drawRect(shape.x, shape.y, shape.w, shape.l);
 			break;
 
 		case OUTLINE_AND_FILLED_IN:

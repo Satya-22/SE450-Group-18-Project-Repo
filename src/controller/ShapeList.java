@@ -14,7 +14,6 @@ public class ShapeList {
 
 	public static void addShape(CreateShape shape) {
 		shapeList.add(shape);
-		System.out.println("test1");
 		DrawShape.update();
 	}
 

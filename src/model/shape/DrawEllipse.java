@@ -16,7 +16,6 @@ public class DrawEllipse implements IDrawShape {
 
 		case OUTLINE:
 			graphics2d.setColor(Color.WHITE);
-			graphics2d.fillOval(shape.x, shape.y, shape.w, shape.l);
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.secondaryColor);
 			graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
@@ -27,7 +26,6 @@ public class DrawEllipse implements IDrawShape {
 			graphics2d.fillOval(shape.x, shape.y, shape.w, shape.l);
 			graphics2d.setStroke(new BasicStroke(5));
 			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.drawOval(shape.x, shape.y, shape.w, shape.l);
 			break;
 
 		case OUTLINE_AND_FILLED_IN:
@@ -42,6 +40,5 @@ public class DrawEllipse implements IDrawShape {
 			break;
 
 		}
-
 	}
 }

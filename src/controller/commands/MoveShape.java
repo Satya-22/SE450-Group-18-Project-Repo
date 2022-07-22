@@ -48,8 +48,8 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 					selectedShape.p1 = new Point(selectedShape.p1.x+xDelta, selectedShape.p1.y+yDelta);
 					selectedShape.p2 = new Point(selectedShape.p2.x+xDelta, selectedShape.p2.y+yDelta);
 					tempMoveList.add(selectedShape);
-					System.out.println(selectedShape.p1);
-					System.out.println(selectedShape.p2);
+					System.out.println("After adding Delta :"+selectedShape.p1);
+					System.out.println("After adding Delta :"+selectedShape.p2);
 				}
 			}
 		}
@@ -61,11 +61,9 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 		for (CreateShape temp1 : tempMoveList) {
 			selectedShapes.add(temp1);
 			shapeList.addShape(temp1);
+			System.out.println("Print Shapes: "+shapeList);
 		}
-		DrawShape drawShape = new DrawShape(shapeList,paintCanvas);
-		drawShape.update();
-		System.out.println(selectedShapes);
-		System.out.println(selectedShapes.size());
+		DrawShape.update();
 		CommandHistory.add(this);
 	}
 
@@ -86,8 +84,7 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 		}
 
 		if (paintCanvas != null) {
-			DrawShape drawShape = new DrawShape(shapeList,paintCanvas);
-			drawShape.update();
+			DrawShape.update();
 		}
 	}
 
@@ -107,8 +104,7 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 			shapeList.addShape(temp1);
 		}
 		if (paintCanvas != null) {
-			DrawShape drawShape = new DrawShape(shapeList,paintCanvas);
-			drawShape.update();
+			DrawShape.update();
 		}
 	}
 }

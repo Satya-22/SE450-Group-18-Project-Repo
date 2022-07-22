@@ -50,8 +50,9 @@ public class DrawShape {
 		graphics2d.fillRect(0, 0, 2560, 1440);
 
 		for (CreateShape shape1 : shapeList.getList()) {
-			System.out.println(shape1.p1);
-			System.out.println(shape1.p2);
+			System.out.println("Updating Coordinates: "+shape1.p1);
+			System.out.println("Updating Coordinates: "+shape1.p2);
+			System.out.println(shape1.shapeConfig.shapeType);
 			drawShape(shape1);
 		}
 	}

@@ -1,14 +1,10 @@
 package controller;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
-
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import model.*;
+import model.ShapeConfig;
 import model.persistence.ApplicationState;
 import view.interfaces.PaintCanvasBase;
 
@@ -16,53 +12,20 @@ public class MouseHandler extends MouseAdapter {
 
 	Point p1 = new Point(0, 0);
 	Point p2 = new Point(0, 0);
-	PaintCanvasBase paintCanvas;
-	ApplicationState appState;
-	ShapeList shapeList;
+	int x;
+	int y;
+	int l;
+	int w;
 
-	Color primaryColor;
+	private static ApplicationState appState;
 
-	Color secondaryColor;
+	private final PaintCanvasBase paintCanvas;
 
-	ShapeShadingType sst;
+	private final ShapeList shapeList;
 
-	public MouseHandler(PaintCanvasBase paintCanvas, ApplicationState appState, ShapeList ShapeList) {
+	public MouseHandler(PaintCanvasBase paintCanvas,ShapeList shapeList){
 		this.paintCanvas = paintCanvas;
-		this.appState = appState;
-		this.shapeList = ShapeList;
-	}
-
-	public void drawShape(PaintCanvasBase paintCanvas) {
-		Graphics2D graphics2d = paintCanvas.getGraphics2D();
-		graphics2d.setStroke(new BasicStroke(5));
-		graphics2d.setColor(stringToColor(appState.getActivePrimaryColor().toString()));
-
-		primaryColor = stringToColor(appState.getActivePrimaryColor().toString());
-
-		secondaryColor = stringToColor(appState.getActiveSecondaryColor().toString());
-
-		sst = appState.getActiveShapeShadingType();
-
-		CreateShapeCommand shape = new CreateShapeCommand(p1 ,p2, paintCanvas,primaryColor,secondaryColor,sst,appState, shapeList);
-		shape.run();
-
-	}
-
-	public static Color stringToColor(final String value) {
-		if (value == null) {
-			return Color.black;
-		}
-		try {
-			return Color.decode(value);
-		} catch (NumberFormatException nfe) {
-			try {
-				final java.lang.reflect.Field f = Color.class.getField(value);
-
-				return (Color) f.get(null);
-			} catch (Exception ce) {
-				return Color.black;
-			}
-		}
+		this.shapeList = shapeList;
 	}
 
 	@Override
@@ -73,18 +36,20 @@ public class MouseHandler extends MouseAdapter {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		p2 = e.getPoint();
-		if (appState.getActiveMouseMode() == MouseMode.DRAW) {
-			drawShape(paintCanvas);
-		}
-		else if (appState.getActiveMouseMode() == MouseMode.SELECT) {
-			SelectShapeCommand command = new SelectShapeCommand(p1, p2, paintCanvas,shapeList);
-				command.run();
-			}
-		else if (appState.getActiveMouseMode() == MouseMode.MOVE) {
-			MoveShapeCommand command = new MoveShapeCommand(p1, p2, paintCanvas,shapeList);
-			command.run();
-		}
 
-		}
+		x = Math.min(p1.x, p2.x);
+		y = Math.min(p1.y, p2.y);
+		w = Math.abs(p1.x - p2.x);
+		l = Math.abs(p1.y - p2.y);
 
+		ShapeConfig shapeConfig = new ShapeConfig(appState.getActivePrimaryColor(), appState.getActiveSecondaryColor(),
+				appState.getActiveShapeType(), appState.getActiveShapeShadingType());
+
+		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig,paintCanvas,shapeList);
 	}
+
+	public static void getAppState(ApplicationState AppState) {
+		appState = AppState;
+	}
+
+}

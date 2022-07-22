@@ -2,23 +2,28 @@ package controller;
 
 import java.util.List;
 
+import controller.commands.CreateShape;
+
 public class ShapeList {
-	
-	private final List<CreateShapeCommand> shapeList;
-	
-	public ShapeList(List<CreateShapeCommand> shapeList) {
-		this.shapeList = shapeList; 
+
+	private static List<CreateShape> shapeList;
+
+	public ShapeList(List<CreateShape> shapeList) {
+		ShapeList.shapeList = shapeList;
 	}
-	
-	public void addShape(CreateShapeCommand shape) {
-		shapeList.add(shape); 		
+
+	public static void addShape(CreateShape shape) {
+		shapeList.add(shape);
+		System.out.println("test1");
+		DrawShape.update();
 	}
-	
-	public void removeShape(CreateShapeCommand shape) {
+
+	public static void removeShape(CreateShape shape) {
 		shapeList.remove(shape);
+		DrawShape.update();
 	}
-	
-	public List<CreateShapeCommand> getList() {
+
+	public static List<CreateShape> getList() {
 		return shapeList;
 	}
 }

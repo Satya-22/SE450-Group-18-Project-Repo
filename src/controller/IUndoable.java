@@ -1,4 +1,4 @@
-package model.interfaces;
+package controller;
 
 public interface IUndoable {
 

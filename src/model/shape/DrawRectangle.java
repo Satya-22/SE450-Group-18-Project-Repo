@@ -45,10 +45,10 @@ public class DrawRectangle implements IDrawShape {
 		}
 		
 		if (shape.selected) {
-			Stroke stroke = new BasicStroke(4, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+			Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
 			graphics2d.setStroke(stroke);
 			graphics2d.setColor(Color.BLACK);
-			graphics2d.drawRect(shape.x, shape.y,shape.w, shape.l);
+			graphics2d.drawRect(shape.x-5, shape.y-5,shape.w+10, shape.l+10);
 		}
 
 	}

@@ -10,17 +10,13 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
-
 	private PaintCanvasBase paintCanvas;
 	private int xDelta;
 	private int yDelta;
 	private final Point startPoint;
 	private final Point endPoint;
-	private static boolean undoSelected = false;
-	private static boolean redoSelected = false;
 	private final LinkedList<CreateShape> tempMoveList;
 	private final LinkedList<CreateShape> tempRemoveList;
-
 	public MoveShape(Point startPoint, Point endPoint) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
@@ -29,9 +25,6 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 	}
 	@Override
 	public void run() {
-		undoSelected = false;
-		redoSelected = false;
-
 		xDelta = endPoint.x - startPoint.x;
 		yDelta = endPoint.y - startPoint.y;
 
@@ -62,8 +55,6 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 
 	@Override
 	public void undo() {
-		redoSelected = false;
-		undoSelected = tempMoveList.size() > 0;
 		xDelta = endPoint.x - startPoint.x;
 		yDelta = endPoint.y - startPoint.y;
 		for (CreateShape temp1 : tempMoveList) {
@@ -88,8 +79,6 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 	public void redo() {
 		xDelta = endPoint.x - startPoint.x;
 		yDelta = endPoint.y - startPoint.y;
-		undoSelected = false;
-		redoSelected = tempMoveList.size() > 0;
 
 		for (CreateShape temp1 : tempRemoveList) {
 			selectedShapes.remove(temp1);

@@ -2,13 +2,10 @@ package controller.commands;
 
 
 import controller.DrawShape;
-import model.ShapeType;
 import model.interfaces.ICommand;
-import controller.SelectedShapeList;
 import controller.ShapeList;
 import model.interfaces.ISelectedShapesList;
 import view.interfaces.PaintCanvasBase;
-
 import java.awt.*;
 
 public class SelectShape implements ICommand, ISelectedShapesList {
@@ -17,10 +14,7 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 	private Point minimum;
 	private int width;
 	private int height;
-	private ShapeList shapeList;
-
-	private PaintCanvasBase paintCanvas;
-
+	private final PaintCanvasBase paintCanvas;
 	public SelectShape(Point startPoint, Point endPoint,PaintCanvasBase paintCanvas) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
@@ -38,10 +32,8 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 		selectedShapes.clear();
 
 		for (CreateShape shape : ShapeList.getList()) {
-
 			shape.selected = false;
 			DrawShape.update();
-
 			if (shape.p1.x < minimum.x + width &&
 					shape.p1.x + (Math.abs(shape.p1.x - shape.p2.x)) > minimum.x &&
 					shape.p1.y < minimum.y + height &&
@@ -52,6 +44,5 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 		}
 		System.out.println("Selected ShapeList : " + selectedShapes);
 		DrawShape.update();
-
 	}
 }

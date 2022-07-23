@@ -18,10 +18,8 @@ public class CreateShape implements ICommand, IUndoable {
 	public int l;
 	public int w;
 	public ShapeConfig shapeConfig;
-	ShapeList shapeList;
-
+	public ShapeList shapeList;
 	public boolean selected;
-
 	public CreateShape(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList,boolean selected) {
 		this.x = x;
 		this.y = y;

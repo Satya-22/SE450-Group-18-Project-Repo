@@ -13,34 +13,29 @@ public class DrawTriangle implements IDrawShape {
 		int[] Y = { shape.p1.y, shape.p2.y, shape.p2.y };
 
 		switch (shape.shapeConfig.shadingType) {
-
-		case OUTLINE:
-			graphics2d.setColor(Color.WHITE);
-			graphics2d.fillPolygon(X, Y, 3);
-			graphics2d.setStroke(new BasicStroke(5));
-			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.drawPolygon(X, Y, 3);
-			break;
-
-		case FILLED_IN:
-			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.fillPolygon(X, Y, 3);
-			graphics2d.setStroke(new BasicStroke(5));
-			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.fillPolygon(X, Y, 3);
-			break;
-
-		case OUTLINE_AND_FILLED_IN:
-			graphics2d.setColor(shape.shapeConfig.primaryColor);
-			graphics2d.fillPolygon(X, Y, 3);
-			graphics2d.setStroke(new BasicStroke(5));
-			graphics2d.setColor(shape.shapeConfig.secondaryColor);
-			graphics2d.drawPolygon(X, Y, 3);
-			break;
-
-		default:
-			break;
-
+			case OUTLINE -> {
+				graphics2d.setColor(Color.WHITE);
+				graphics2d.fillPolygon(X, Y, 3);
+				graphics2d.setStroke(new BasicStroke(5));
+				graphics2d.setColor(shape.shapeConfig.primaryColor);
+				graphics2d.drawPolygon(X, Y, 3);
+			}
+			case FILLED_IN -> {
+				graphics2d.setColor(shape.shapeConfig.primaryColor);
+				graphics2d.fillPolygon(X, Y, 3);
+				graphics2d.setStroke(new BasicStroke(5));
+				graphics2d.setColor(shape.shapeConfig.primaryColor);
+				graphics2d.fillPolygon(X, Y, 3);
+			}
+			case OUTLINE_AND_FILLED_IN -> {
+				graphics2d.setColor(shape.shapeConfig.primaryColor);
+				graphics2d.fillPolygon(X, Y, 3);
+				graphics2d.setStroke(new BasicStroke(5));
+				graphics2d.setColor(shape.shapeConfig.secondaryColor);
+				graphics2d.drawPolygon(X, Y, 3);
+			}
+			default -> {
+			}
 		}
 		if (shape.selected) {
 			Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);

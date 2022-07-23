@@ -13,11 +13,8 @@ import view.interfaces.PaintCanvasBase;
 public class DrawShape {
 
 	static Graphics2D graphics2d;
-	private static ShapeList shapeList;
 
-	public DrawShape(ShapeList shapeList,PaintCanvasBase paintCanvas)
-	{
-		this.shapeList = shapeList;
+	public DrawShape(PaintCanvasBase paintCanvas) {
 		graphics2d = paintCanvas.getGraphics2D();
 	}
 
@@ -40,14 +37,15 @@ public class DrawShape {
 		}
 
 		shapeStrategy.draw(shape, graphics2d);
+
 	}
 
 	public static void update() {
 		graphics2d.setColor(Color.WHITE);
 		graphics2d.fillRect(0, 0, 2560, 1440);
-		for (CreateShape shape1 : ShapeList.getList()) {
-			System.out.println(shape1.shapeConfig.shapeType);
-			drawShape(shape1);
+
+		for (CreateShape shape : ShapeList.getList()) {
+			drawShape(shape);
 		}
 	}
 }

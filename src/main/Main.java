@@ -29,9 +29,9 @@ public class Main {
         
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
         ShapeList ShapeList = new ShapeList(shapeList);
-        DrawShape DrawShape = new DrawShape(ShapeList,paintCanvas);
+        DrawShape DrawShape = new DrawShape(paintCanvas);
         
-        MouseHandler handler = new MouseHandler(paintCanvas,ShapeList);
+        MouseHandler handler = new MouseHandler();
         paintCanvas.addMouseListener(handler);
         MouseHandler.getAppState(appState);
         ShapeMode.getAppState(appState);

@@ -1,8 +1,6 @@
 package model.shape;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 import controller.commands.CreateShape;
 import model.interfaces.IDrawShape;
@@ -39,6 +37,12 @@ public class DrawEllipse implements IDrawShape {
 		default:
 			break;
 
+		}
+		if (shape.selected) {
+			Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+			graphics2d.setStroke(stroke);
+			graphics2d.setColor(Color.BLACK);
+			graphics2d.drawOval(shape.x-5, shape.y-5,shape.w+10, shape.l+10);
 		}
 	}
 }

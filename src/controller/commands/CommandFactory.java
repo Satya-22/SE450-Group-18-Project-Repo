@@ -9,8 +9,8 @@ import view.interfaces.PaintCanvasBase;
 
 public class CommandFactory {
 
-	public static ICommand drawCommand(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList) {
-		return new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList);
+	public static ICommand drawCommand(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList,boolean selected) {
+		return new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList,selected);
 	}
 
 	public static ICommand selectCommand(Point p1, Point p2,PaintCanvasBase paintCanvas) {

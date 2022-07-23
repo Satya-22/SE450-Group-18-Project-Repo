@@ -23,6 +23,8 @@ public class MouseHandler extends MouseAdapter {
 
 	private final ShapeList shapeList;
 
+	boolean selected;
+
 	public MouseHandler(PaintCanvasBase paintCanvas,ShapeList shapeList){
 		this.paintCanvas = paintCanvas;
 		this.shapeList = shapeList;
@@ -45,7 +47,7 @@ public class MouseHandler extends MouseAdapter {
 		ShapeConfig shapeConfig = new ShapeConfig(appState.getActivePrimaryColor(), appState.getActiveSecondaryColor(),
 				appState.getActiveShapeType(), appState.getActiveShapeShadingType());
 
-		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig,paintCanvas,shapeList);
+		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig,paintCanvas,shapeList,selected);
 	}
 
 	public static void getAppState(ApplicationState AppState) {

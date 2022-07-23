@@ -20,7 +20,9 @@ public class CreateShape implements ICommand, IUndoable {
 	public ShapeConfig shapeConfig;
 	ShapeList shapeList;
 
-	public CreateShape(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList) {
+	public boolean selected;
+
+	public CreateShape(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList,boolean selected) {
 		this.x = x;
 		this.y = y;
 		this.p1 = p1;
@@ -29,11 +31,12 @@ public class CreateShape implements ICommand, IUndoable {
 		this.w = w;
 		this.shapeConfig = shapeConfig;
 		this.shapeList = shapeList;
+		this.selected = selected;
 	}
 
 	@Override
 	public void run() {
-		shape = new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList);
+		shape = new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList,selected);
 		shapeList.addShape(shape);
 		CommandHistory.add(this);
 	}

@@ -14,12 +14,12 @@ public class ShapeMode {
 	private static ApplicationState appState;
 	private static ICommand shapeCommand;
 
-	public static void run(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,PaintCanvasBase paintCanvas,ShapeList shapeList) {
+	public static void run(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,PaintCanvasBase paintCanvas,ShapeList shapeList,boolean selected) {
 
 		switch (appState.getActiveMouseMode()) {
 
 		case DRAW:
-			shapeCommand = CommandFactory.drawCommand(x, y, p1, p2, l, w, shapeConfig,shapeList);
+			shapeCommand = CommandFactory.drawCommand(x, y, p1, p2, l, w, shapeConfig,shapeList,selected);
 			break;
 		case SELECT:
 			shapeCommand = CommandFactory.selectCommand(p1, p2,paintCanvas);

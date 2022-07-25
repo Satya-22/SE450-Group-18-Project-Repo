@@ -14,12 +14,12 @@ public class ShapeList {
 
 	public static void addShape(CreateShape shape) {
 		shapeList.add(shape);
-		DrawShape.update();
+		DrawStrategy.update();
 	}
 
 	public static void removeShape(CreateShape shape) {
 		shapeList.remove(shape);
-		DrawShape.update();
+		DrawStrategy.update();
 	}
 
 	public static List<CreateShape> getList() {

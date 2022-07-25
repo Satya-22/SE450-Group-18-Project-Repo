@@ -3,11 +3,13 @@ package model.shape;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Stroke;
 
 import controller.commands.CreateShape;
 import model.interfaces.IDrawShape;
 
 public class DrawTriangle implements IDrawShape {
+
 	@Override
 	public void draw(CreateShape shape, Graphics2D graphics2d) {
 
@@ -43,6 +45,15 @@ public class DrawTriangle implements IDrawShape {
 		default:
 			break;
 
+		}
+		
+		if (shape.selected) {
+			Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1, new float[]{9}, 0);
+			graphics2d.setStroke(stroke);
+			graphics2d.setColor(Color.BLACK);
+			int[] arrayX = {shape.p1.x-5, shape.p1.x-5, shape.p2.x+10};
+			int[] arrayY = {shape.p1.y-10, shape.p2.y+5, shape.p2.y+5};
+			graphics2d.drawPolygon(arrayX,arrayY,3);
 		}
 
 	}

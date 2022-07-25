@@ -1,6 +1,6 @@
 package main;
 
-import controller.DrawShape;
+import controller.DrawStrategy;
 import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
@@ -29,7 +29,7 @@ public class Main {
         
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
         ShapeList ShapeList = new ShapeList(shapeList);
-        DrawShape DrawShape = new DrawShape(ShapeList,paintCanvas);
+        DrawStrategy DrawShape = new DrawStrategy(ShapeList,paintCanvas);
         
         MouseHandler handler = new MouseHandler(paintCanvas,ShapeList);
         paintCanvas.addMouseListener(handler);

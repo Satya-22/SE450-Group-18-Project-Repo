@@ -1,7 +1,7 @@
 package controller.commands;
 
 
-import controller.DrawShape;
+import controller.DrawStrategy;
 import model.interfaces.ICommand;
 import controller.ShapeList;
 import model.interfaces.ISelectedShapesList;
@@ -33,7 +33,7 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 
 		for (CreateShape shape : ShapeList.getList()) {
 			shape.selected = false;
-			DrawShape.update();
+			DrawStrategy.update();
 			if (shape.p1.x < minimum.x + width &&
 					shape.p1.x + (Math.abs(shape.p1.x - shape.p2.x)) > minimum.x &&
 					shape.p1.y < minimum.y + height &&
@@ -43,6 +43,6 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 			}
 		}
 		System.out.println("Selected ShapeList : " + selectedShapes);
-		DrawShape.update();
+		DrawStrategy.update();
 	}
 }

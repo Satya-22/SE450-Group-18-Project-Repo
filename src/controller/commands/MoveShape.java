@@ -1,7 +1,7 @@
 package controller.commands;
 
 import controller.*;
-import controller.DrawShape;
+import controller.DrawStrategy;
 import model.interfaces.ICommand;
 import model.interfaces.ISelectedShapesList;
 import model.interfaces.IUndoable;
@@ -49,7 +49,7 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 			selectedShapes.add(temp1);
 			ShapeList.addShape(temp1);
 		}
-		DrawShape.update();
+		DrawStrategy.update();
 		CommandHistory.add(this);
 	}
 
@@ -71,7 +71,7 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 		}
 
 		if (paintCanvas != null) {
-			DrawShape.update();
+			DrawStrategy.update();
 		}
 	}
 
@@ -93,7 +93,7 @@ public class MoveShape implements ICommand, IUndoable, ISelectedShapesList {
 			ShapeList.addShape(temp1);
 		}
 		if (paintCanvas != null) {
-			DrawShape.update();
+			DrawStrategy.update();
 		}
 	}
 }

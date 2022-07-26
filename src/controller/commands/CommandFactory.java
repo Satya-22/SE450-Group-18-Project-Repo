@@ -26,4 +26,8 @@ public class CommandFactory {
 	public static ICommand pasteCommand() {
 		return new PasteShape();
 	}
+	
+	public static ICommand deleteCommand() {
+		return new DeleteShape();
+	}
 }

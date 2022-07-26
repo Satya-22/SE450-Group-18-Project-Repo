@@ -11,7 +11,6 @@ import model.interfaces.IUndoable;
 public class PasteShape implements ICommand, IUndoable {
 	
 	private List<CreateShape> pastedList = new ArrayList<CreateShape>();
-	private List<CreateShape> oldList = new ArrayList<CreateShape>();
 	
 	public PasteShape() {
 	}

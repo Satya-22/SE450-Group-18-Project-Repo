@@ -1,25 +1,24 @@
 package controller.commands;
 
-
-import controller.DrawStrategy;
 import model.interfaces.ICommand;
+import controller.DrawStrategy;
 import controller.ShapeList;
-import model.interfaces.ISelectedShapesList;
-import view.interfaces.PaintCanvasBase;
+
 import java.awt.*;
 
-public class SelectShape implements ICommand, ISelectedShapesList {
+public class SelectShape implements ICommand {
 	private final Point startPoint;
 	private final Point endPoint;
 	private Point minimum;
 	private int width;
 	private int height;
-	private final PaintCanvasBase paintCanvas;
-	public SelectShape(Point startPoint, Point endPoint,PaintCanvasBase paintCanvas) {
+	private ShapeList shapeList;
+
+	public SelectShape(Point startPoint, Point endPoint) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
-		this.paintCanvas = paintCanvas;
 	}
+
 	@Override
 	public void run() {
 
@@ -29,20 +28,18 @@ public class SelectShape implements ICommand, ISelectedShapesList {
 
 		height = Math.abs(startPoint.y - endPoint.y);
 
-		selectedShapes.clear();
-
 		for (CreateShape shape : ShapeList.getList()) {
+
 			shape.selected = false;
 			DrawStrategy.update();
-			if (shape.p1.x < minimum.x + width &&
-					shape.p1.x + (Math.abs(shape.p1.x - shape.p2.x)) > minimum.x &&
-					shape.p1.y < minimum.y + height &&
-					shape.p1.y + (Math.abs(shape.p1.y - shape.p2.y)) > minimum.y) {
+
+			if (shape.p1.x < minimum.x + width && shape.p1.x + (Math.abs(shape.p1.x - shape.p2.x)) > minimum.x
+					&& shape.p1.y < minimum.y + height
+					&& shape.p1.y + (Math.abs(shape.p1.y - shape.p2.y)) > minimum.y) {
 				shape.selected = true;
-				selectedShapes.add(shape);
+				DrawStrategy.update();
 			}
 		}
-		System.out.println("Selected ShapeList : " + selectedShapes);
-		DrawStrategy.update();
+
 	}
 }

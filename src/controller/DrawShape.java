@@ -11,6 +11,7 @@ import model.shape.DrawTriangle;
 import view.interfaces.PaintCanvasBase;
 
 public class DrawShape {
+
 	static Graphics2D graphics2d;
 	private static ShapeList shapeList;
 
@@ -22,12 +23,22 @@ public class DrawShape {
 
 	public static void drawShape(CreateShape shape) {
 
-		IDrawShape shapeStrategy = switch (shape.shapeConfig.shapeType) {
-			case ELLIPSE -> new DrawEllipse();
-			case TRIANGLE -> new DrawTriangle();
-			case RECTANGLE -> new DrawRectangle();
-			default -> new DrawRectangle();
-		};
+		IDrawShape shapeStrategy;
+
+		switch (shape.shapeConfig.shapeType) {
+		case ELLIPSE:
+			shapeStrategy = new DrawEllipse();
+			break;
+		case TRIANGLE:
+			shapeStrategy = new DrawTriangle();
+			break;
+		case RECTANGLE:
+			shapeStrategy = new DrawRectangle();
+			break;
+		default:
+			shapeStrategy = new DrawRectangle();
+		}
+
 		shapeStrategy.draw(shape, graphics2d);
 	}
 

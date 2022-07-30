@@ -28,10 +28,13 @@ public class Main {
         IJPaintController controller = new JPaintController(uiModule, appState);
         
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
-        ShapeList ShapeList = new ShapeList(shapeList);
-        DrawStrategy DrawShape = new DrawStrategy(ShapeList,paintCanvas);
+        List<CreateShape> copyList = new ArrayList<CreateShape>();
+        ShapeList ShapeList = new ShapeList(shapeList, copyList);
+        DrawStrategy DrawShape = new DrawStrategy(paintCanvas);
         
-        MouseHandler handler = new MouseHandler(paintCanvas,ShapeList);
+        int pasteCounter = 0;
+        
+        MouseHandler handler = new MouseHandler();
         paintCanvas.addMouseListener(handler);
         MouseHandler.getAppState(appState);
         ShapeMode.getAppState(appState);

@@ -6,32 +6,29 @@ import java.awt.event.MouseEvent;
 
 import model.ShapeConfig;
 import model.persistence.ApplicationState;
-import view.interfaces.PaintCanvasBase;
 
 public class MouseHandler extends MouseAdapter {
+
 	Point p1 = new Point(0, 0);
 	Point p2 = new Point(0, 0);
 	int x;
 	int y;
 	int l;
 	int w;
-	private static ApplicationState appState;
-	private final PaintCanvasBase paintCanvas;
-	private final ShapeList shapeList;
 	boolean selected;
 
-	public MouseHandler(PaintCanvasBase paintCanvas,ShapeList shapeList){
-		this.paintCanvas = paintCanvas;
-		this.shapeList = shapeList;
-	}
+	private static ApplicationState appState;
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		p1 = e.getPoint();
+		DrawStrategy.update();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		p2 = e.getPoint();
+
 		x = Math.min(p1.x, p2.x);
 		y = Math.min(p1.y, p2.y);
 		w = Math.abs(p1.x - p2.x);
@@ -39,8 +36,10 @@ public class MouseHandler extends MouseAdapter {
 
 		ShapeConfig shapeConfig = new ShapeConfig(appState.getActivePrimaryColor(), appState.getActiveSecondaryColor(),
 				appState.getActiveShapeType(), appState.getActiveShapeShadingType());
-
-		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig,paintCanvas,shapeList,selected);
+		
+		selected = false;
+		DrawStrategy.update();
+		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig, selected);
 	}
 
 	public static void getAppState(ApplicationState AppState) {

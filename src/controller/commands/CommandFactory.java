@@ -2,22 +2,32 @@ package controller.commands;
 
 import java.awt.Point;
 
-import controller.ShapeList;
 import model.ShapeConfig;
 import model.interfaces.ICommand;
-import view.interfaces.PaintCanvasBase;
 
 public class CommandFactory {
 
-	public static ICommand drawCommand(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig,ShapeList shapeList,boolean selected) {
-		return new CreateShape(x, y, p1, p2, l, w, shapeConfig,shapeList,selected);
+	public static ICommand drawCommand(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig, boolean selected) {
+		return new CreateShape(x, y, p1, p2, l, w, shapeConfig, selected);
 	}
 
-	public static ICommand selectCommand(Point p1, Point p2,PaintCanvasBase paintCanvas) {
-		return new SelectShape(p1, p2,paintCanvas);
+	public static ICommand selectCommand(Point p1, Point p2) {
+		return new SelectShape(p1, p2);
 	}
 
-	public static ICommand moveCommand(Point p1,Point p2) {
+	public static ICommand moveCommand(Point p1, Point p2) {
 		return new MoveShape(p1,p2);
+	}
+	
+	public static ICommand copyCommand() {
+		return new CopyShape();
+	}
+	
+	public static ICommand pasteCommand() {
+		return new PasteShape();
+	}
+	
+	public static ICommand deleteCommand() {
+		return new DeleteShape();
 	}
 }

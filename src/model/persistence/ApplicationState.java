@@ -3,6 +3,9 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+
+import java.awt.Color;
+
 import model.MouseMode;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
@@ -12,6 +15,7 @@ import view.interfaces.IUiModule;
 public class ApplicationState implements IApplicationState {
     private final IUiModule uiModule;
     private final IDialogProvider dialogProvider;
+
     private ShapeType activeShapeType;
     private ShapeColor activePrimaryColor;
     private ShapeColor activeSecondaryColor;
@@ -23,10 +27,12 @@ public class ApplicationState implements IApplicationState {
         this.dialogProvider = new DialogProvider(this);
         setDefaults();
     }
+
     @Override
     public void setActiveShape() {
         activeShapeType = uiModule.getDialogResponse(dialogProvider.getChooseShapeDialog());
     }
+
     @Override
     public void setActivePrimaryColor() {
         activePrimaryColor = uiModule.getDialogResponse(dialogProvider.getChoosePrimaryColorDialog());

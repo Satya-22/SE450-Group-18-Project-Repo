@@ -1,6 +1,6 @@
 package main;
 
-import controller.DrawShape;
+import controller.DrawStrategy;
 import controller.JPaintController;
 import controller.MouseHandler;
 import controller.ShapeList;
@@ -28,10 +28,13 @@ public class Main {
         IJPaintController controller = new JPaintController(uiModule, appState);
         
         List<CreateShape> shapeList = new ArrayList<CreateShape>();
-        ShapeList ShapeList = new ShapeList(shapeList);
-        DrawShape DrawShape = new DrawShape(ShapeList,paintCanvas);
+        List<CreateShape> copyList = new ArrayList<CreateShape>();
+        ShapeList ShapeList = new ShapeList(shapeList, copyList);
+        DrawStrategy DrawShape = new DrawStrategy(paintCanvas);
         
-        MouseHandler handler = new MouseHandler(paintCanvas,ShapeList);
+        int pasteCounter = 0;
+        
+        MouseHandler handler = new MouseHandler();
         paintCanvas.addMouseListener(handler);
         MouseHandler.getAppState(appState);
         ShapeMode.getAppState(appState);

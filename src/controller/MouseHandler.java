@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 import model.ShapeConfig;
 import model.persistence.ApplicationState;
+import view.interfaces.PaintCanvasBase;
 
 public class MouseHandler extends MouseAdapter {
 
@@ -16,8 +17,13 @@ public class MouseHandler extends MouseAdapter {
 	int l;
 	int w;
 	boolean selected;
+	PaintCanvasBase paintCanvas;
 
 	private static ApplicationState appState;
+
+	public MouseHandler(PaintCanvasBase paintCanvas){
+		this.paintCanvas = paintCanvas;
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -39,7 +45,7 @@ public class MouseHandler extends MouseAdapter {
 		
 		selected = false;
 		DrawStrategy.update();
-		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig, selected);
+		ShapeMode.run(x, y, p1, p2, l, w, shapeConfig, selected,paintCanvas);
 	}
 
 	public static void getAppState(ApplicationState AppState) {

@@ -1,11 +1,10 @@
 package model.interfaces;
 
-import java.awt.Graphics2D;
-
-import controller.commands.CreateShape;
+import controller.commands.CreateShapeCommand;
+import view.interfaces.PaintCanvasBase;
 
 public interface IDrawShape {
 
-	public void draw(CreateShape shape, Graphics2D graphics2d);
+	void draw(CreateShapeCommand shape, PaintCanvasBase paintCanvas);
 
 }

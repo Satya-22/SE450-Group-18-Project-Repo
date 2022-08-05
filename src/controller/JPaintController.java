@@ -1,7 +1,7 @@
 package controller;
 
 
-import controller.commands.CommandFactory;
+import controller.commands.StaticFactory;
 import model.interfaces.IApplicationState;
 import model.interfaces.IJPaintController;
 import view.EventName;
@@ -29,8 +29,8 @@ public class JPaintController implements IJPaintController {
 		uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> applicationState.setActiveStartAndEndPointMode());
 		uiModule.addEvent(EventName.UNDO, () -> CommandHistory.undo());
 		uiModule.addEvent(EventName.REDO, () -> CommandHistory.redo());
-		uiModule.addEvent(EventName.COPY, () -> CommandFactory.copyCommand().run());
-		uiModule.addEvent(EventName.PASTE, () -> CommandFactory.pasteCommand().run());
-		uiModule.addEvent(EventName.DELETE, () -> CommandFactory.deleteCommand().run());
+		uiModule.addEvent(EventName.COPY, () -> StaticFactory.copyCommand().run());
+		uiModule.addEvent(EventName.PASTE, () -> StaticFactory.pasteCommand().run());
+		uiModule.addEvent(EventName.DELETE, () -> StaticFactory.deleteCommand().run());
 	}
 }

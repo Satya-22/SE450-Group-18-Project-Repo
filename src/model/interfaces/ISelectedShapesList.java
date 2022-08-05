@@ -1,11 +1,11 @@
 package model.interfaces;
 
 
-import controller.commands.CreateShape;
+import controller.commands.CreateShapeCommand;
 
 import java.util.LinkedList;
 
 public interface ISelectedShapesList {
-        LinkedList<CreateShape> selectedShapes = new LinkedList<>();
+        LinkedList<CreateShapeCommand> selectedShapes = new LinkedList<>();
     }
 

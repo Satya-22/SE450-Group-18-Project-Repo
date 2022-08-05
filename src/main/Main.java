@@ -3,9 +3,9 @@ package main;
 import controller.DrawStrategy;
 import controller.JPaintController;
 import controller.MouseHandler;
-import controller.ShapeList;
+import controller.DrawnShapeList;
 import controller.ShapeMode;
-import controller.commands.CreateShape;
+import controller.commands.CreateShapeCommand;
 import model.interfaces.IJPaintController;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
@@ -27,14 +27,14 @@ public class Main {
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
         
-        List<CreateShape> shapeList = new ArrayList<CreateShape>();
-        List<CreateShape> copyList = new ArrayList<CreateShape>();
-        ShapeList ShapeList = new ShapeList(shapeList, copyList);
+        List<CreateShapeCommand> shapeList = new ArrayList<CreateShapeCommand>();
+        List<CreateShapeCommand> copyList = new ArrayList<CreateShapeCommand>();
+        DrawnShapeList DrawnShapeList = new DrawnShapeList(shapeList, copyList);
         DrawStrategy DrawShape = new DrawStrategy(paintCanvas);
         
         int pasteCounter = 0;
         
-        MouseHandler handler = new MouseHandler();
+        MouseHandler handler = new MouseHandler(paintCanvas);
         paintCanvas.addMouseListener(handler);
         MouseHandler.getAppState(appState);
         ShapeMode.getAppState(appState);

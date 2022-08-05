@@ -1,35 +1,21 @@
 package controller;
 
 import java.awt.Point;
-
-import controller.commands.CommandFactory;
+import controller.commands.StaticFactory;
 import model.ShapeConfig;
 import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
+import view.interfaces.PaintCanvasBase;
 
 public class ShapeMode {
-
 	private static ApplicationState appState;
 	private static ICommand shapeCommand;
-
-	public static void run(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig, boolean selected) {
-
+	public static void run(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig, boolean selected, PaintCanvasBase paintCanvas) {
 		switch (appState.getActiveMouseMode()) {
-
-		case DRAW:
-			shapeCommand = CommandFactory.drawCommand(x, y, p1, p2, l, w, shapeConfig, selected);
-			break;
-		case SELECT:
-			shapeCommand = CommandFactory.selectCommand(p1, p2);
-			break;
-		case MOVE:
-			shapeCommand = CommandFactory.moveCommand(p1,p2);
-			break;
-
-		default:
-			shapeCommand = CommandFactory.selectCommand(p1, p2);
+			case DRAW -> shapeCommand = StaticFactory.drawCommand(x, y, p1, p2, l, w, shapeConfig, selected);
+			case SELECT -> shapeCommand = StaticFactory.selectCommand(p1, p2,paintCanvas);
+			case MOVE -> shapeCommand = StaticFactory.moveCommand(p1, p2,paintCanvas);
 		}
-		
 		shapeCommand.run();
 	}
 

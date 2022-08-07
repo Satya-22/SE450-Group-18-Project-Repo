@@ -1,12 +1,12 @@
 package controller.commands;
 
 import java.awt.Point;
-
 import controller.CommandHistory;
 import controller.DrawnShapeList;
 import model.ShapeConfig;
 import model.interfaces.ICommand;
 import model.interfaces.IUndoable;
+import controller.DrawnShapeList;
 
 public class CreateShapeCommand implements ICommand, IUndoable {
 
@@ -19,6 +19,7 @@ public class CreateShapeCommand implements ICommand, IUndoable {
 	public int w;
 	public ShapeConfig shapeConfig;
 	public boolean selected;
+	private int pasteCount;
 
 	public CreateShapeCommand(int x, int y, Point p1, Point p2, int l, int w, ShapeConfig shapeConfig, boolean selected) {
 		this.x = x;
@@ -32,9 +33,10 @@ public class CreateShapeCommand implements ICommand, IUndoable {
 	}
 
 	public CreateShapeCommand clone() {
-		Point newP1 = new Point(this.p1.x + 50, this.p1.y + 50);
-		Point newP2 = new Point(this.p2.x + 50, this.p2.y + 50);
-		CreateShapeCommand clonedShape = new CreateShapeCommand(this.x + 50, this.y + 50, newP1, newP2, this.l, this.w,
+        pasteCount = DrawnShapeList.pasteCounter();
+		Point newP1 = new Point(this.p1.x + 50 * pasteCount, this.p1.y  + 50 * pasteCount);
+		Point newP2 = new Point(this.p2.x + 50 * pasteCount, this.p2.y + 50 * pasteCount);
+		CreateShapeCommand clonedShape = new CreateShapeCommand(this.x + 50 * pasteCount, this.y + 50 * pasteCount, newP1, newP2, this.l, this.w,
 				this.shapeConfig, false);
 		return clonedShape;
 	}

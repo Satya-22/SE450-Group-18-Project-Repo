@@ -9,6 +9,8 @@ public class CopyShapeCommand implements ICommand {
 	public void run() {
 		
 		CopyShapeCommand copy = new CopyShapeCommand();
+
+		DrawnShapeList.Counter = 0;
 		
 		DrawnShapeList.getClipBoard().clear();
 		

@@ -7,6 +7,7 @@ import controller.commands.CreateShapeCommand;
 public class DrawnShapeList {
 	private static List<CreateShapeCommand> shapeList;
 	private static List<CreateShapeCommand> copyList;
+	public static int Counter;
 
 	public DrawnShapeList(List<CreateShapeCommand> shapeList, List<CreateShapeCommand> copyList) {
 		DrawnShapeList.shapeList = shapeList;
@@ -33,5 +34,10 @@ public class DrawnShapeList {
 	
 	public static List<CreateShapeCommand> getClipBoard() {
 		return copyList;
+	}
+
+	public static int pasteCounter(){
+		Counter++;
+		return Counter;
 	}
 }

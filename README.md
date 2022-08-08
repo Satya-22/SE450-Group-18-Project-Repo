@@ -21,6 +21,8 @@ The IPaint Application does the following:
 
 [Proxy Design Pattern](#proxy)
 
+[Singleton Design Pattern](#Singleton)
+
 
 ---
 

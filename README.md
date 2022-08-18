@@ -28,7 +28,7 @@ The JPaint Application does the following:
 
 ---
 
-<a name="command"/> 
+<a name="command"></a> 
 
 ## Command Design Pattern
 
@@ -50,7 +50,7 @@ Classes Used :
 *                GroupShape
 *                UnGroupShapeCommand
 
-<a name="staticfact"/>
+<a name="staticfact"></a>
 
 ## Static Factory Design Pattern
 
@@ -80,7 +80,7 @@ Static factory method is simply a static method that returns an instance of a cl
 7. public static ICommand groupCommand
 8. public static ICommand ungroupCommand
 
-
+<a name="strat"></a>
 ## Strategy Design Pattern
 
 **Interfaces Used** : 
@@ -96,6 +96,7 @@ Draw Strategy Class uses IDrawShape Interface to switch between different Strate
 *                     Draw Rectangle
 *                     Draw Triangle
 
+<a name="proxy"></a>
 ## Proxy Design Pattern
 
 Proxy Pattern is used to add functionality to another class.In this Case we are using the proxy design pattern for Drawing an Outline to the selected Shape.
@@ -114,7 +115,7 @@ Proxy Pattern is used to add functionality to another class.In this Case we are 
 *                    DrawRectangleOutline
 *                    DrawEllipseOutline
 *                    DrawTriangleOutline
-
+<a name="Singleton"></a>
 ## Singleton Design Pattern
 
 

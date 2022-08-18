@@ -15,7 +15,7 @@ The JPaint Application does the following:
 # Design Patterns used:
 [Command Design Pattern](#command)
 
-[Static Factory Design Pattern](#s-fact)
+[Static Factory Design Pattern](#staticfact)
 
 [Strategy Design Pattern](#strat)
 
@@ -49,6 +49,8 @@ Classes Used :
 *                PasteShapeCommand
 *                GroupShape
 *                UnGroupShapeCommand
+
+<a name="staticfact"/>
 
 ## Static Factory Design Pattern
 

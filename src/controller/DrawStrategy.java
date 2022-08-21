@@ -21,7 +21,7 @@ public class DrawStrategy {
 	}
 	public static void drawShape(CreateShapeCommand shape) {
 
-		IDrawShape shapeStrategy = switch (shape.shapeConfig.shapeType) {
+		IDrawShape shapeStrategy;
 		switch (shape.shapeConfig.shapeType) {
 		case ELLIPSE:
 			shapeStrategy = new DrawEllipse();

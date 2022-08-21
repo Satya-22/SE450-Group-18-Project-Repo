@@ -22,11 +22,19 @@ public class DrawStrategy {
 	public static void drawShape(CreateShapeCommand shape) {
 
 		IDrawShape shapeStrategy = switch (shape.shapeConfig.shapeType) {
-			case ELLIPSE -> new DrawEllipse();
-			case TRIANGLE -> new DrawTriangle();
-			case RECTANGLE -> new DrawRectangle();
-			case default -> new NullShape();
-		};
+		switch (shape.shapeConfig.shapeType) {
+		case ELLIPSE:
+			shapeStrategy = new DrawEllipse();
+			break;
+		case TRIANGLE:
+			shapeStrategy = new DrawTriangle();
+			break;
+		case RECTANGLE:
+			shapeStrategy = new DrawRectangle();
+			break;
+		default:
+			shapeStrategy = new DrawRectangle();
+		}
 		shapeStrategy.draw(shape,paintCanvas);
 	}
 

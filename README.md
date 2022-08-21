@@ -162,7 +162,19 @@ All the Functionalities are up and working.
 
 # Miscellaneous Notes :
 
-When we are creating a group,the shapes in the group are selected only by clicking on one of the shapes,but not the bounding box of the group.
+* In the First sprint we have created a specific class to Convert a color to use it in drawing shapes but then later i have implemented the Singleton Design Pattern to Cover the requirement.
+
+
+* For Implementing the group shape command,there are so many changes that has to be implemented in the code like first thing is we have to group the selected shapes with the same group id.So,for this a method has been added in CreateShape Command called addGroupShape which helps to push the shape into a particular Group Object and there are some more methods which willo remove a group shape and get the list of groups which help in implementing the Grouping of shapes.
+
+
+* For Implementing the selected Shape Outline we have written a code  in each of the Strategies but later implemented the Proxy Design Pattern which helps to just called the Instance of the class and then call a specific Method to draw an outline.
+
+
+* For Implementing the Copy and Paste Functionality we have implemented ProtoType Design Pattern where in we have create a clone method in CreateShape Command which helps to replicate the Drawn Shape properties in a seperate Copied List and the same List is used in PasteShapeCommand.
+
+
+* When we are creating a group,the shapes in the group are selected only by clicking on one of the shapes,but not the bounding box of the group.
 
 # Bug Report : 
 
